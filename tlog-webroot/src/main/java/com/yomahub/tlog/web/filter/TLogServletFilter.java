@@ -22,11 +22,13 @@ public class TLogServletFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        if (request instanceof HttpServletRequest && response instanceof HttpServletResponse){
+        if (request instanceof HttpServletRequest && response instanceof HttpServletResponse && null == request.getAttribute(TLogConstants.REQUEST_ATTRIBUTE_TLOG_FLAG)){
             try{
                 TLogWebCommon.loadInstance().preHandle((HttpServletRequest)request);
                 //把traceId放入response的header，为了方便有些人有这样的需求，从前端拿整条链路的traceId
                 ((HttpServletResponse)response).addHeader(TLogConstants.TLOG_TRACE_KEY, TLogContext.getTraceId());
+                chain.doFilter(request, response);
+                return;
             }finally {
                 TLogWebCommon.loadInstance().afterCompletion();
             }
