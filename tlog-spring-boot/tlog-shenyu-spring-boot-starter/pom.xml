@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>tlog-gateway-spring-boot-starter</artifactId>
+    <artifactId>tlog-shenyu-spring-boot-starter</artifactId>
 
     <dependencies>
         <dependency>
@@ -19,7 +19,7 @@
         </dependency>
         <dependency>
             <groupId>com.yomahub</groupId>
-            <artifactId>tlog-gateway</artifactId>
+            <artifactId>tlog-webflux</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>

@@ -26,4 +26,6 @@ public class TLogConstants {
 
     public static final String WEBFLUX_EXCHANGE = "exchange";
 
+    public static final String REQUEST_ATTRIBUTE_TLOG_FLAG = "REQUEST_ATTRIBUTE_TLOG_FLAG";
+
 }

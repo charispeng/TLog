@@ -43,6 +43,8 @@ public class TLogWebCommon extends TLogRPCHandler {
         TLogLabelBean labelBean = new TLogLabelBean(preIvkApp, preIvkHost, preIp, traceId, spanId);
 
         processProviderSide(labelBean);
+
+        request.setAttribute(TLogConstants.REQUEST_ATTRIBUTE_TLOG_FLAG, true);
     }
 
     public void afterCompletion() {
